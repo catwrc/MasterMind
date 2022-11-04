@@ -4,6 +4,7 @@
 * [Que es Mastermind?](#que-es-Mastermind?)
 * [Elements que componen el joc](#elements-que-componen-eljoc)
 * [Com es juga](#com-es-juga)
+* [Annex](#annex)
 ## Que es Mastermind?
 
 Mastermind és un joc d'habilitat i lògica que consisteix a 
@@ -13,7 +14,7 @@ encara que ha passat per diverses transformacions quant a format i
 imatge l'essència del joc és bàsicament la mateixa.
 
 ## Elements que componen el joc
-
+s
 #### Tauler compost per:
 *  8 de 4 columnes files  per a les clavilles de colors.
 *  8 de 4 columnes files per comporvar la corectesa del les clavilles de colors.
@@ -32,4 +33,8 @@ cada combinació, s'aniran donant unes pistes mitjançant les espigues, que
 poden ser un conjunt buit una F si el color està en la combinació, però no 
 en la posició correcta i una espiga amb la lletra T 
 si el color encertat a més està en la posició correcta. 
-El joc no te sistema de puntuació
+El joc no te sistema de puntuació.
+
+## Annex
+
+[Partida explicatoria de com es juga al Mastermind](https://www.youtube.com/watch?v=2-hTeg2M6GQ&ab_channel=ViciadosMesa)
