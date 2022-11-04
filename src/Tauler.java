@@ -24,17 +24,12 @@ public class Tauler {
     }
     public void MostraTauler(SecretCode CodiSecret) {
         String tauler = " ";
-        //tauler+="----------------------------------------------------\n";
-        //tauler+="                    MASTERMIND                       \n";
-        //tauler+="-----------------------------------------------------\n";
 
-        //if (CodigoSecreto.is_secret){
             tauler += "| ";
             for (String cod : CodiSecret.getSecretCode().split("")) {
                 tauler +=  cod + "      ";
             }
             tauler += "|\n";
-        //}
 
         tauler+="----------------------------------------------------\n";
         for(int i = 0; i< Main.Oportunitats; i++){

@@ -25,32 +25,32 @@ public class Main {
 
     }
 
-
-
     public static void main(String[] args) {
-        //secretCode = new SecretCode();
         intents= 0;
+        String lli = null;
         codii = new Codi();
         tauler = new Tauler();
         secretCode = new SecretCode();
         acabat = false;
         SecretCode secret_code =  new SecretCode();
+        missatge_inicial();
         while(!acabat){
             if(intents<2){
-                intents++;
-        String codiDemanat = IntroduirColors.EscollirColor(); //Demanem codi a l'usuari
-        Codi user_code =  new Codi(codiDemanat);
+                String codiDemanat = IntroduirColors.EscollirColor();
+                if(codiDemanat==null){
+                break;
+                }
+            Codi user_code =  new Codi(codiDemanat);
 
-        tauler.añadirCodigosTablero(new Codi(codiDemanat));
-        pista = new Joc(secret_code, user_code);
-        tauler.añadirPistasTablero(pista);
-        tauler.MostraTauler(secret_code);
-        System.out.println(codiDemanat);
-        System.out.println(secret_code.getSecretCode());
-        if(codiDemanat.equals(secret_code.getSecretCode())){
-            acabat =true;
-            win();
+            tauler.añadirCodigosTablero(new Codi(codiDemanat));
+            pista = new Joc(secret_code, user_code);
+            tauler.añadirPistasTablero(pista);
+            tauler.MostraTauler(secret_code);
+            if(codiDemanat.equals(secret_code.getSecretCode())){
+                acabat =true;
+                win();
             }
+            intents++;
             }
 
             else{
@@ -59,7 +59,6 @@ public class Main {
             }
         }
     }
-
 
     public static void win(){
         System.out.println("11111111111111111111111111111111111111111111111111111");
@@ -70,12 +69,18 @@ public class Main {
     public static void lose(String codi){
         System.out.println("11111111111111111111111111111111111111111111111111111");
         System.out.println("1111             El joc s'ha acabat              1111");
-        System.out.println("1111       La combinació gunyadora era:          1111");
+        System.out.println("1111       La combinació guanyadora era:         1111");
         System.out.println(String.format("1111                   %s                      1111",codi));
         System.out.println("11111111111111111111111111111111111111111111111111111");
     }
 
-    public static void rolJoc(String codi){
-        Codi codiJoc = new Codi(codi);
+    public static void missatge_inicial(){
+        SecretCode secret_code =  new SecretCode();
+        System.out.println("Les combinacions de colors disponibles son:");
+        for(int i = 0; i < Main.Colors.size(); i++){
+            System.out.print(Main.Colors.get(i)+ " ");
+        }
+        System.out.print("\nPer exemple: " + secret_code.getSecretCode()+"");
     }
+
 }

@@ -17,8 +17,6 @@ public class SecretCode{
    public void setSecretCode(String code)
    {
       this.code = code;
-      //this.code = randomSecretCode();
-      //this.code = "RBWO".toUpperCase();
    }
    public String getSecretCode(){
 
