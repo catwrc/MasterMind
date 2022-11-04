@@ -36,10 +36,9 @@ public class Main {
         acabat = false;
         SecretCode secret_code =  new SecretCode();
         while(!acabat){
-            if(intents<Oportunitats){
+            if(intents<2){
                 intents++;
         String codiDemanat = IntroduirColors.EscollirColor(); //Demanem codi a l'usuari
-        introduceCode(codiDemanat);
         Codi user_code =  new Codi(codiDemanat);
 
         tauler.añadirCodigosTablero(new Codi(codiDemanat));
@@ -56,29 +55,23 @@ public class Main {
 
             else{
                 acabat =true;
-                System.out.println("El joc s'ha acabat");
+                lose(secret_code.getSecretCode());
             }
         }
     }
 
-    public static void introduceCode(String code){
-
-        //--Codi user_code =  new Codi(code);
-        //--Tauler tauler = new Tauler();
-        //SecretCode codi = new SecretCode("Aaaa");
-        //---tauler.añadirCodigosTablero(new Codi(code));
-        //--pista = new Joc(secretCode, user_code);
-       // System.out.println(codi);
-        //--tauler.añadirPistasTablero(pista);
-        //Mostra el tauler
-        //tauler.guardarCodis(new Codi(codiDemanat));
-        //--tauler.MostraTauler(secretCode);
-
-    }
 
     public static void win(){
         System.out.println("11111111111111111111111111111111111111111111111111111");
         System.out.println("1111                  YOU WIN!!!                 1111");
+        System.out.println("11111111111111111111111111111111111111111111111111111");
+    }
+
+    public static void lose(String codi){
+        System.out.println("11111111111111111111111111111111111111111111111111111");
+        System.out.println("1111             El joc s'ha acabat              1111");
+        System.out.println("1111       La combinació gunyadora era:          1111");
+        System.out.println(String.format("1111                   %s                      1111",codi));
         System.out.println("11111111111111111111111111111111111111111111111111111");
     }
 
