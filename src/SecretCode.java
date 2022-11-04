@@ -1,17 +1,24 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 public class SecretCode{
    public static int CODE_LENGHT = 4;
-
+   //private  String secretCode;
+   public boolean is_secret;
    private String code;
 
    public String options_of_colors = "RBWOPGY"; // Red, Blue, White, Orange, Purple, Green, Yellow,
-
-   public SecretCode(String a)
-   {
+   public SecretCode(){
 
       this.code = randomSecretCode();
-
-
+      this.is_secret = true;
+   }
+   public void setSecretCode(String code)
+   {
+      this.code = code;
+      //this.code = randomSecretCode();
+      //this.code = "RBWO".toUpperCase();
    }
    public String getSecretCode(){
 
@@ -20,14 +27,15 @@ public class SecretCode{
    }
    public String randomSecretCode()
    {
+      // general codigo secreto aleatorio
+      String code = "";
+      Random random = new Random();
+      List<String> aux = new ArrayList<String>(Main.Colors);
 
-      String cadena = "";
-      for (int x = 0; x < CODE_LENGHT; x++) {
-         int index = numberRandomInRange(0, options_of_colors.length() - 1);
-         char random = options_of_colors.charAt(index);
-         cadena += random;
+      for(int i = 0; i< Main.numFil; i++){
+         code += aux.get(random.nextInt(aux.size()));
       }
-      return cadena;
+      return code;
    }
 
    public static int numberRandomInRange(int min, int max) {
