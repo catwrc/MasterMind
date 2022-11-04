@@ -14,7 +14,7 @@ encara que ha passat per diverses transformacions quant a format i
 imatge l'essència del joc és bàsicament la mateixa.
 
 ## Elements que componen el joc
-s
+
 #### Tauler compost per:
 *  8 de 4 columnes files  per a les clavilles de colors.
 *  8 de 4 columnes files per comporvar la corectesa del les clavilles de colors.
