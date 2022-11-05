@@ -1,28 +1,33 @@
+package Model;
+
+import Controlador.Main;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-public class SecretCode{
+public class CodiSecret {
    public static int CODE_LENGHT = 4;
    //private  String secretCode;
    public boolean is_secret;
    private String code;
 
    public String options_of_colors = "RBWOPGY"; // Red, Blue, White, Orange, Purple, Green, Yellow,
-   public SecretCode(){
+   public CodiSecret(){
 
       this.code = randomSecretCode();
       this.is_secret = true;
    }
-   public void setSecretCode(String code)
+   public void setCodiSecret(String codi)
    {
-      this.code = code;
+      this.code = codi;
    }
    public String getSecretCode(){
 
       return this.code;
 
    }
+
    public String randomSecretCode()
    {
       // general codigo secreto aleatorio

@@ -1,7 +1,14 @@
+package Vista;
+
+import Controlador.Main;
+import Model.Codi;
+import Model.CodiSecret;
+import Model.Joc;
+
 import java.util.ArrayList;
 
 public class Tauler {
-    private SecretCode CodiSecret;
+    private Model.CodiSecret CodiSecret;
     String tauler;
     private ArrayList<Codi> llistaCodis;//llistat de tots els codis
     private ArrayList<Joc> llistaEncerts;
@@ -22,7 +29,7 @@ public class Tauler {
     public void guardarCodis(Codi codi) {
         this.llistaCodis.add(codi);
     }
-    public void MostraTauler(SecretCode CodiSecret) {
+    public void MostraTauler(CodiSecret CodiSecret) {
         String tauler = " ";
 
             tauler += "| ";
@@ -35,7 +42,7 @@ public class Tauler {
         for(int i = 0; i< Main.Oportunitats; i++){
             if (this.llistaCodis.size() > i) {
                 tauler += "| ";
-                for (String cod : llistaCodis.get(i).getCodigo().split("")) {
+                for (String cod : llistaCodis.get(i).getCodi().split("")) {
                     tauler += cod + "      ";
                 }
                 tauler += "| ";
