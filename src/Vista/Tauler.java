@@ -59,4 +59,16 @@ public class Tauler {
         setTauler(tauler);
         System.out.println(tauler);
 }
+
+    //Funció pel test del tauler
+    public String Mostra() {
+        String tauler = " ";
+        tauler="|---------------------------------------------------|\n";
+        for(int i = 0; i< Main.Oportunitats; i++){
+            tauler += "| -      -      -      -      | -    -    -    -    |\n";
+            tauler+="|---------------------------------------------------|\n";
+            //Haurem de mostrar files per posar les peces de colors i per les comprovacions
+        }
+        return tauler;
+    }
 }

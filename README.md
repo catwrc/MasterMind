@@ -1,6 +1,6 @@
 # Mastermind 
 
-## Table of contents
+## Taula de continguts
 * [Que es Mastermind?](#que-es-Mastermind?)
 * [Elements que componen el joc](#elements-que-componen-eljoc)
 * [Com es juga](#com-es-juga)
@@ -15,7 +15,7 @@ imatge l'essència del joc és bàsicament la mateixa.
 
 ## Elements que componen el joc
 
-#### Tauler compost per:
+#### Vista.Tauler compost per:
 *  8 de 4 columnes files  per a les clavilles de colors.
 *  8 de 4 columnes files per comporvar la corectesa del les clavilles de colors.
 *  1 compartiment per introduir el codi.

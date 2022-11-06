@@ -38,6 +38,7 @@ public class Main {
 
     public static void main(String[] args) {
         new Main();
+        tauler.Mostra();
         CodiSecret secret_code =  new CodiSecret();
         missatge_inicial();
         while(!acabat){
