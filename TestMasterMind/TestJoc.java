@@ -11,7 +11,6 @@ public class TestJoc {
     CodiSecret codi_secret;
 
 
-
     @BeforeEach
     void setUp(){
         codi_secret = new CodiSecret();
@@ -21,14 +20,10 @@ public class TestJoc {
     @Test
     public void TestJoc() {
 
-
-
         //Coincideixen per complet els 2 codis
         codi_usuari.setCodi("RYGO");
         codi_secret.setCodiSecret("RYGO");
-
         Joc var = new Joc(codi_secret,codi_usuari);
-
         assertEquals("TTTT", var.getJoc());
 
         //Coincideix nomes una lletra en color i posicio
@@ -106,8 +101,6 @@ public class TestJoc {
 
         var = new Joc(codi_secret,codi_usuari);
         assertEquals("TTTT", var.getJoc());
-
-
 
     }
 }

@@ -12,6 +12,8 @@ public class TestTauler {
     void Test1(){
         tauler = new Tauler();
     }
+
+    //Usem aquest test per veure que el tauler es genera correctament
     @Test
     public void Mostra() {
         String a= tauler.Mostra();

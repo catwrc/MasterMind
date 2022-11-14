@@ -1,9 +1,4 @@
-
-import Model.Codi;
-import Model.CodiSecret;
 import Model.IntroduirColors;
-import Model.Joc;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,6 +8,7 @@ import static org.testng.AssertJUnit.*;
 
 public class TestIntroduirColors {
 
+    //Test de particions equivalents
     @Test
     public void esCorrecteTest(){
         IntroduirColors i = new IntroduirColors();
@@ -39,61 +35,34 @@ public class TestIntroduirColors {
     }
 
 
+        //test de particions equivalents parametritzat
         @ParameterizedTest
         @CsvFileSource(resources = "lletres.csv",numLinesToSkip = 1,delimiterString = ";")
-        public void Parametritzacio(final String v0, final String v2,
-                                                  final String v3, final String v4v,
-                                                  final String v4nv, final String v5,
-                                                  final String v6, final String v20) {
+        public void Parametritzacio(final String test1, final String test2,
+                                                  final String test3, final String test4,
+                                                  final String test5, final String test6,
+                                                  final String test7, final String test8) {
 
             IntroduirColors i = new IntroduirColors();
-            //Valors nulls
-            //boolean code_correct = i.esCorrecte(null);
-            //Assert.assertFalse(code_correct);
 
-            //Limit 2
-            assertFalse(i.esCorrecte(v2));
-            assertFalse(i.esCorrecte(v3));
+            //valors null
+            assertFalse(i.esCorrecte(test1));
+            //valors fora de la frontera
+            assertFalse(i.esCorrecte(test2));
+            //valors limit frontera
+            assertFalse(i.esCorrecte(test3));
+            //valors frontera
+            assertFalse(i.esCorrecte(test4));
+            //valors frontera
+            assertFalse(i.esCorrecte(test5));
+            //valors limit frontera
+            assertFalse(i.esCorrecte(test6));
+            //valors limit frontera
+            assertFalse(i.esCorrecte(test7));
+            //valors fora de la frontera
+            assertFalse(i.esCorrecte(test8));
+
     }
-        /*@ParameterizedTest
-        @CsvFileSource(emptyValue = "/lletres.csv",numLinesToSkip = 1,delimiterString = ";")
-        public void Test_Particio_Equivalent_CSV(final String v0,final String v2,
-        final String v3,final String v4v,
-        final String v4nv,final String v5,
-        final String v6,final String v20) {
-            Model.IntroduirColors i = new Model.IntroduirColors();
-            //Valors nulls
-            //boolean code_correct = i.esCorrecte(null);
-            //Assert.assertFalse(code_correct);
-
-            //Limit 2
-            assertFalse(i.esCorrecte(v2));
-
-            //Limit 3
-            code_correct = i.esCorrecte(v3);
-            assertFalse(code_correct);
-
-            //Limit 4 validos
-            code_correct = i.esCorrecte(v4v);
-            assertTrue(code_correct);
-
-            //Limit 4 no validos
-            code_correct = i.esCorrecte(v4nv);
-            assertFalse(code_correct);
-
-            //Limit 5 no validos
-            code_correct = i.esCorrecte(v5);
-            assertFalse(code_correct);
-
-            //Limit 6
-            code_correct = i.esCorrecte(v6);
-            assertFalse(code_correct);
-
-            //Limit 20
-            code_correct = i.esCorrecte(v20);
-            assertFalse(code_correct);*/
-
-
 
         }
 

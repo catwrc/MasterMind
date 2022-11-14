@@ -8,8 +8,8 @@ public class Codi {
         this.codi = codi.toUpperCase();
     }
     public String getCodi() {return codi;}
-    public boolean TestCodi(String code) {
-        return this.codi.equals(code);
+    public boolean TestCodi(String codi) {
+        return this.codi.equals(codi);
     }
     public void setCodi(String codi){ this.codi = codi;}
 

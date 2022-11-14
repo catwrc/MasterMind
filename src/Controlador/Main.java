@@ -1,11 +1,9 @@
 package Controlador;
 
-import Model.Codi;
-import Model.CodiSecret;
-import Model.IntroduirColors;
-import Model.Joc;
+import Model.*;
 import Vista.Tauler;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,16 +12,18 @@ public class Main {
 
     private static CodiSecret secretCode;
 
-    public static int Oportunitats = 8;
+    public static int Oportunitats = 8; // nombre intents joc
     private static Joc pista;
-    public static int numFil = 4;
-    public static List<String> Colors = Arrays.asList("R", "Y", "G", "B", "O", "P");
+    public static int numFil = 4; // numero files
+    //R = red, Y =yellow, G =green, B = blue, O = orange, P = purple
+    public static List<String> Colors = Arrays.asList("R", "Y", "G", "B", "O", "P"); //colors disponibles
     private static Tauler tauler;
     private static Codi codii;
     private static boolean acabat;
     private static boolean perdut;
     private static boolean guanyat;
     private static int intents;
+    private final ArrayList<String> llistaIntents;
 
     public Main(){
         tauler = new Tauler();
@@ -33,25 +33,27 @@ public class Main {
         guanyat= false;
         intents= 0;
         codii = new Codi();
+        llistaIntents = new ArrayList<>();
 
     }
 
+    //Funció principal del joc s'encarrega de gestionar el codi secret, el codi que
+    //introdueix l'usuari i del taulell de joc
     public static void main(String[] args) {
         new Main();
         tauler.Mostra();
         CodiSecret secret_code =  new CodiSecret();
         missatge_inicial();
         while(!acabat){
-            if(intents<2){
+            if(intents<8){
                 String codiDemanat = IntroduirColors.EscollirColor();
                 if(codiDemanat==null){
                 break;
                 }
             Codi user_code =  new Codi(codiDemanat);
-
-            tauler.añadirCodigosTablero(new Codi(codiDemanat));
+            tauler.AfegirCodiTaulell(new Codi(codiDemanat));
             pista = new Joc(secret_code, user_code);
-            tauler.añadirPistasTablero(pista);
+            tauler.AfegirPistaTaulell(pista);
             tauler.MostraTauler(secret_code);
             if(codiDemanat.equals(secret_code.getSecretCode())){
                 acabat = true;
@@ -90,35 +92,96 @@ public class Main {
             System.out.print(Main.Colors.get(i)+ " ");
         }
         System.out.print("\nPer exemple: " + secret_code.getSecretCode()+"");
+        System.out.print("\nF = Exiteix pero no esta a la posicio correcta, T = posicio i color correcta ");
+        System.out.print("\nConjunt buit = no exiteix aquest color");
     }
+
+    public Tauler getTauler(){return tauler;}
 
     public boolean getGuanyat(){return this.guanyat;}
     public boolean getPerdut(){return this.perdut;}
     public int getIntents(){return this.intents;}
-    public int DecConCoverage3(int input1, int input2){
-        int contador = 0;
-        if (input1 >4 || input1<2 ) {//no -inf a 2
-            if (input2 <0)
-                contador = -2;
-            else
-                contador = 100;
-        }
-        else
-        if (input2 >0)
-            contador = 10;
-        else
-            contador = 80;
-        return contador;
+
+
+
+    //Testing Mock Objects
+    public Codi_Interficie simulacioJoc;
+    public void setJugador(Codi_Interficie jugador){this.simulacioJoc = jugador;}
+    public String codiMock;
+    public boolean codiCorrecte;
+
+    public void Inicia_Mock(){
+        codiMock = simulacioJoc.introduirCodi();
+        codiCorrecte = simulacioJoc.correct_code(codiMock);
     }
 
-    //LOOP TESTING:  Funciones para hacer loop testing
-    public int TestSimpleLoop1(int input){
-        int contador = 0;
-        for(; input < 10; input++){
-            contador ++;
+    public void mainMock(){
+        int intents=0;
+        boolean acabat=false;
+        int i=1;
+        while(!acabat){
+            if(intents<Oportunitats){
+                String codi = this.simulacioJoc.introduirCodi(); // llista codis simulat Jugador2
+                this.llistaIntents.add(codi);
+                while ( codi == null){
+                    System.out.println("El codi es null");
+                }
+                introdueixCodi(codi);
+                intents++;
+            }
+            else{
+                acabat = true;
+            }
+            i++;
         }
-        return  contador;
-
     }
 
+    public SecretCode_Interficie SecretCodeInterface;
+    public void codisecretInterficie(SecretCode_Interficie MockSCode){ this.SecretCodeInterface = MockSCode ;}
+    //Mock del codi secret
+    public void introdueixCodi(String code){
+        Codi codi = new Codi(code);
+        CodiSecret a = new CodiSecret();
+        a.setCodiSecret("YYPO");  //aquest es el codi secret pel moock object
+        tauler.AfegirCodiTaulell(new Codi(code));
+        pista = new Joc(this.SecretCodeInterface, codi);
+        tauler.AfegirPistaTaulell(pista);
+        tauler.MostraTauler(a);
+        if(code.equals(a.getSecretCode())){
+            acabat = true;
+            win();
+        }
+        else{
+            acabat =true;
+            //lose(a.getSecretCode());
+        }
+    }
+
+    //Fem path coverage per testejar la funcio Main del joc
+    public int pathCoverage(boolean isOver, int intents, String code_user, String code_user_null){
+        int i = 1;
+        i++;
+        while(!isOver){
+            i++;
+            if(intents < Oportunitats){
+                i++;
+                String var = code_user; i++;
+                this.llistaIntents.add(var); i++;
+                while (var == null){
+                    i++;
+                    var = code_user_null; i++;
+                }
+                if(var != null)i++;
+                introdueixCodi(var); i++;
+                intents++; i++; isOver = true;
+            }
+            else{
+                i++;
+                isOver = true; i++;
+                i++;
+            }
+        }
+        i++;
+        return i;
+    }
 }

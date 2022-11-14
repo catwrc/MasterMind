@@ -12,6 +12,7 @@ public class TestSecretCode {
         codi = new CodiSecret();
     }
 
+    //Provem que la llargada del codi de secret sigui el correcte
     @Test
     public void Test2(){
         codi = new CodiSecret();
@@ -19,6 +20,7 @@ public class TestSecretCode {
         Assert.assertEquals(v_codi.length(), 4);
     }
 
+    //Provem que si la lalrgada del corri no es correcta retorni false
     @Test
     public void Test3(){
         codi = new CodiSecret();
@@ -27,6 +29,8 @@ public class TestSecretCode {
         Assert.assertNotEquals(v_codi.length(), 3);
     }
 
+
+    //Testejem que al crear un codi nou nomes es generi amb els colors correctes
     @Test
     public void Test4(){
         codi = new CodiSecret();

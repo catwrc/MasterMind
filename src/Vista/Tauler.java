@@ -20,24 +20,29 @@ public class Tauler {
         this.tauler = tauler1;
     }
 
-    public void añadirCodigosTablero(Codi codigo) {
+    public void AfegirCodiTaulell(Codi codigo) {
         this.llistaCodis.add(codigo);
     }
-    public void añadirPistasTablero(Joc pista) {
+    public void AfegirPistaTaulell(Joc pista) {
         this.llistaEncerts.add(pista);
     }
     public void guardarCodis(Codi codi) {
         this.llistaCodis.add(codi);
     }
+    public ArrayList<Joc> getPistasTauler() {
+        return this.llistaEncerts;
+    }
     public void MostraTauler(CodiSecret CodiSecret) {
         String tauler = " ";
 
-            tauler += "| ";
+
+            //Comentem aquest tros de codi ja que ens dona la combinació del codi secret
+           /* tauler += "| ";
             for (String cod : CodiSecret.getSecretCode().split("")) {
                 tauler +=  cod + "      ";
             }
             tauler += "|\n";
-
+            */
         tauler+="----------------------------------------------------\n";
         for(int i = 0; i< Main.Oportunitats; i++){
             if (this.llistaCodis.size() > i) {

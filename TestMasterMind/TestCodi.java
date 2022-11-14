@@ -6,7 +6,7 @@ import static org.testng.AssertJUnit.assertFalse;
 
 public class TestCodi {
 
-    //Test del constructor
+    //Test del constructor del codi intriduit per l'usuari
     Codi varTest;
     @Test
     void ConstructorCodiTest1(){
