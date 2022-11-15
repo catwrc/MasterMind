@@ -1,8 +1,7 @@
 import Model.Codi;
 import org.testng.annotations.Test;
 
-;import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertFalse;
+;import static org.testng.AssertJUnit.*;
 
 public class TestCodi {
 
@@ -18,5 +17,10 @@ public class TestCodi {
     void CodiTest2(){
         varTest = new Codi("RYGO");
         assertFalse(varTest.TestCodi("RYGP"));
+    }
+    @Test
+    void toUppercase(){
+        Codi codi = new Codi("rygo");
+        assertEquals("RYGO", codi.getCodi());
     }
 }

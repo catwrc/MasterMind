@@ -45,7 +45,7 @@ public class Main {
         CodiSecret secret_code =  new CodiSecret();
         missatge_inicial();
         while(!acabat){
-            if(intents<8){
+            if(intents<2){
                 String codiDemanat = IntroduirColors.EscollirColor();
                 if(codiDemanat==null){
                 break;
@@ -69,6 +69,7 @@ public class Main {
         }
     }
 
+
     public static void win(){
         guanyat= true;
         System.out.println("11111111111111111111111111111111111111111111111111111");
@@ -88,10 +89,7 @@ public class Main {
     public static void missatge_inicial(){
         CodiSecret secret_code =  new CodiSecret();
         System.out.println("Les combinacions de colors disponibles son:");
-        for(int i = 0; i < Main.Colors.size(); i++){
-            System.out.print(Main.Colors.get(i)+ " ");
-        }
-        System.out.print("\nPer exemple: " + secret_code.getSecretCode()+"");
+        System.out.print("Per exemple: " + secret_code.getSecretCode()+"");
         System.out.print("\nF = Exiteix pero no esta a la posicio correcta, T = posicio i color correcta ");
         System.out.print("\nConjunt buit = no exiteix aquest color");
     }

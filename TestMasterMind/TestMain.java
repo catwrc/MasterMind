@@ -12,7 +12,7 @@ import Model.Mocks.MockJugador2;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.AssertJUnit.*;
 
 public class TestMain {
 
@@ -83,5 +83,16 @@ public class TestMain {
         intents = Main.Oportunitats;
         contador = joc.pathCoverage(false,intents,"POGY",null);
         assertEquals(7,contador);
+    }
+
+
+    //Comprovem que el numero d'intents sempre sigui menor de 8
+    @Test
+    public void Intents(){
+        Main joc = new Main();
+        int intents = Main.Oportunitats;
+        int in = joc.getIntents();
+        assertTrue(in<intents);
+        assertFalse(in>intents);
     }
 }

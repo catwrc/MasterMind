@@ -8,9 +8,8 @@ public class IntroduirColors {
 
     static int intents = 0;
 
-    //Funcio que gestiona el codi que s'introduiex per teclat
+    //Funció que gestiona el codi que s'introdueix per teclat
     public static String EscollirColor(){
-        int y;
         while(intents<3){ //2 intents permesos d'introduir codis no correctes
             String llista = escriure();
             if(esCorrecte(llista)){
@@ -36,15 +35,15 @@ public class IntroduirColors {
     //Funció que ens permet escriure per teclat el codi
     public static String escriure(){
         Scanner Teclat = new Scanner(System.in);
-        System.out.println("\nEscriu la combinacio de colors que creguis mes convenient: ");
-        String llista = Teclat.nextLine().toUpperCase();
-        return llista;
+        System.out.println("\nEscriu la combinacio de colors que creguis mes convenient (R Y G B O P): ");
+        return Teclat.nextLine().toUpperCase();
     }
 
 
 
     //Funció que controla que nomes es puguin lletres correctes(RYGBOP)
     public static boolean NomesConteLletres(String cadena) {
+
         for (int x = 0; x < cadena.length(); x++) {
             char c = cadena.charAt(x);
             if (!(c=='R'|| c=='Y'|| c=='G'|| c=='B'|| c=='O'|| c=='P')) {
