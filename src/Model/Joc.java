@@ -1,6 +1,7 @@
 package Model;
 
 import Controlador.Main;
+import Model.Interficies.SecretCode_Interficie;
 
 public class Joc {
 

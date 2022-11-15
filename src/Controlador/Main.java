@@ -1,6 +1,8 @@
 package Controlador;
 
 import Model.*;
+import Model.Interficies.Codi_Interficie;
+import Model.Interficies.SecretCode_Interficie;
 import Vista.Tauler;
 
 import java.util.ArrayList;
@@ -45,7 +47,7 @@ public class Main {
         CodiSecret secret_code =  new CodiSecret();
         missatge_inicial();
         while(!acabat){
-            if(intents<2){
+            if(intents<8){
                 String codiDemanat = IntroduirColors.EscollirColor();
                 if(codiDemanat==null){
                 break;
@@ -102,7 +104,7 @@ public class Main {
 
 
 
-    //Testing Mock Objects
+    /* ***********Testing Mock Objects********************* */
     public Codi_Interficie simulacioJoc;
     public void setJugador(Codi_Interficie jugador){this.simulacioJoc = jugador;}
     public String codiMock;
@@ -113,6 +115,7 @@ public class Main {
         codiCorrecte = simulacioJoc.correct_code(codiMock);
     }
 
+    //funció similar a la del main per al mock object que simula una partida sense jugadors real
     public void mainMock(){
         int intents=0;
         boolean acabat=false;
@@ -136,7 +139,7 @@ public class Main {
 
     public SecretCode_Interficie SecretCodeInterface;
     public void codisecretInterficie(SecretCode_Interficie MockSCode){ this.SecretCodeInterface = MockSCode ;}
-    //Mock del codi secret
+    //Mock del codi secret, la crida el mainMock
     public void introdueixCodi(String code){
         Codi codi = new Codi(code);
         CodiSecret a = new CodiSecret();
@@ -155,7 +158,7 @@ public class Main {
         }
     }
 
-    //Fem path coverage per testejar la funcio Main del joc
+    //Fem path coverage per testejar la funció Main del joc
     public int pathCoverage(boolean isOver, int intents, String code_user, String code_user_null){
         int i = 1;
         i++;
@@ -181,5 +184,22 @@ public class Main {
         }
         i++;
         return i;
+    }
+
+    // Cas extra de decision y conditional coverage
+    public int Coverage(int val1, int val2){
+        int sumatori = 0;
+        if (val1 >4 || val2<1 ) {
+            if (val2 <0)
+                sumatori = -2;
+            else
+                sumatori = 100;
+        }
+        else
+            if (val2 >1)
+                sumatori = 10;
+            else
+                sumatori = 80;
+            return sumatori;
     }
 }

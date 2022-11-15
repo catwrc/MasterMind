@@ -35,7 +35,7 @@ public class TestIntroduirColors {
     }
 
 
-        //test de particions equivalents parametritzat
+        //test de particions equivalents, valors límit i frontera parametritzat
         @ParameterizedTest
         @CsvFileSource(resources = "lletres.csv",numLinesToSkip = 1,delimiterString = ";")
         public void Parametritzacio(final String test1, final String test2,

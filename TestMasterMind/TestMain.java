@@ -16,6 +16,7 @@ import static org.testng.AssertJUnit.*;
 
 public class TestMain {
 
+    //Test constructor del main
     @Test
     public void ConstructorTest(){
         Main joc= new Main();
@@ -28,15 +29,16 @@ public class TestMain {
     }
 
     @Test
-    public void Test_Update_Code(){
+    public void TestCodi(){
         MockJugador mock_jugador = new MockJugador();
         Main game = new Main();
         game.setJugador(mock_jugador);
-
         game.Inicia_Mock();
         Assert.assertTrue(game.codiCorrecte, "El codi no es correcte");
         assertEquals("El codi no es correcte","POGY", game.codiMock);
     }
+
+    //Test que simula una partida sande jugadors reals
     @Test
     public void Llista_codis(){
         List<String> pistesCorrectes  = new ArrayList<String>(List.of(
@@ -55,7 +57,20 @@ public class TestMain {
         }
     }
 
+    //Test condition i desicion coverage
+    @Test
+    public void TestCoverage() {
+        Main Joc = new Main();
+        assertEquals(-2, Joc.Coverage(0, -10));
 
+        assertEquals(80, Joc.Coverage(0, 1));
+
+        assertEquals(100, Joc.Coverage(5, 1));
+
+        assertEquals(10, Joc.Coverage(3, 4));
+
+        assertEquals(100, Joc.Coverage(30, 0));
+    }
     //Test de pairwise testing parametritzat, provem les combinacions de
     // trios on i paregui la lletra R
     @ParameterizedTest

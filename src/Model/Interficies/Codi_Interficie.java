@@ -1,4 +1,4 @@
-package Model;
+package Model.Interficies;
 
 public interface Codi_Interficie {
 

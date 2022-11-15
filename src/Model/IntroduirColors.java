@@ -23,7 +23,6 @@ public class IntroduirColors {
     //Controlem la mida del codi<5, que no sigui null i que nomes contingui lletres
 
     public static Boolean esCorrecte(String codi){
-        if(codi==null){return false;}
         boolean vari = NomesConteLletres(codi);
         if( codi.length() != Main.numFil || codi == null || !vari){
             System.out.println("El codi no es correcte!!!");

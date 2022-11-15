@@ -3,7 +3,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.testng.annotations.Test;
 
-public class TestSecretCode {
+public class TestCodiSecret {
 
     CodiSecret codi;
 
@@ -20,7 +20,7 @@ public class TestSecretCode {
         Assert.assertEquals(v_codi.length(), 4);
     }
 
-    //Provem que si la lalrgada del corri no es correcta retorni false
+    //Provem que si  la llargada del codi no es correcta retorni false
     @Test
     public void Test3(){
         codi = new CodiSecret();
@@ -30,7 +30,7 @@ public class TestSecretCode {
     }
 
 
-    //Testejem que al crear un codi nou nomes es generi amb els colors correctes
+    //Testejem que al crear un codi nou només es generi amb els colors correctes
     @Test
     public void Test4(){
         codi = new CodiSecret();

@@ -10,7 +10,6 @@ public class TestJoc {
     Codi codi_usuari;
     CodiSecret codi_secret;
 
-
     @BeforeEach
     void setUp(){
         codi_secret = new CodiSecret();
@@ -77,6 +76,7 @@ public class TestJoc {
 
     }
 
+    //Test condition i desicion coverage
     @Test
     public void testConditionDecision(){
 

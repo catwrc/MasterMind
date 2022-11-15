@@ -13,11 +13,14 @@ public class TestCodi {
         assertEquals("RYGO", varTest.getCodi());
     }
 
+
+    //Test particions equivalents
     @Test
     void CodiTest2(){
         varTest = new Codi("RYGO");
         assertFalse(varTest.TestCodi("RYGP"));
     }
+    //Test particions equivalents
     @Test
     void toUppercase(){
         Codi codi = new Codi("rygo");

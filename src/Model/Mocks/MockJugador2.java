@@ -1,6 +1,6 @@
 package Model.Mocks;
 
-import Model.Codi_Interficie;
+import Model.Interficies.Codi_Interficie;
 
 import java.util.ArrayList;
 import java.util.List;
